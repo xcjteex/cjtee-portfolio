@@ -1,0 +1,1232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carla Jaypee Tee — Bookkeeping &amp; Financial Operations</title>
+<meta name="description" content="Bookkeeping and financial operations for service-based businesses. QuickBooks Online and Xero, cleanup and catch-up, monthly reporting, and the operational context behind the numbers.">
+<link rel="canonical" href="https://www.cjtee.com/">
+
+<!-- Favicons -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#234f45">
+
+<!-- Open Graph / social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Carla Jaypee Tee">
+<meta property="og:title" content="Carla Jaypee Tee — Bookkeeping & Financial Operations">
+<meta property="og:description" content="Bookkeeping and financial operations for service-based businesses. QuickBooks Online and Xero, cleanup and catch-up, monthly reporting, and the operational context behind the numbers.">
+<meta property="og:url" content="https://www.cjtee.com/">
+<meta property="og:image" content="https://www.cjtee.com/images/carla-headshot.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Carla Jaypee Tee — Bookkeeping & Financial Operations">
+<meta name="twitter:description" content="Bookkeeping and financial operations for service-based businesses, including QuickBooks Online and Xero.">
+<meta name="twitter:image" content="https://www.cjtee.com/images/carla-headshot.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#20302c;
+    --ink-soft:#425650;
+    --teal:#2f6f62;
+    --teal-deep:#234f45;
+    --sage:#8fa79a;
+    --paper:#fffdf9;
+    --ground:#faf6ef;
+    --ground-2:#f3ede1;
+    --line:#ddd4c2;
+    --line-soft:#e9e2d3;
+    --accent-wash:#e7efe9;
+    --focus:#1c5c4e;
+    --radius:2px;
+    --serif-num: "Manrope", sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#eef2ef;
+      --ink-soft:#c2ccc6;
+      --teal:#7fbba9;
+      --teal-deep:#a9d3c4;
+      --sage:#8fa79a;
+      --paper:#182420;
+      --ground:#111a17;
+      --ground-2:#1c2723;
+      --line:#33453e;
+      --line-soft:#293733;
+      --accent-wash:#1d2b26;
+      --focus:#a9d3c4;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#eef2ef;
+    --ink-soft:#c2ccc6;
+    --teal:#7fbba9;
+    --teal-deep:#a9d3c4;
+    --sage:#8fa79a;
+    --paper:#182420;
+    --ground:#111a17;
+    --ground-2:#1c2723;
+    --line:#33453e;
+    --line-soft:#293733;
+    --accent-wash:#1d2b26;
+    --focus:#a9d3c4;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ground);
+    color:var(--ink);
+    font-family:"DM Sans", -apple-system, sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:"Manrope", sans-serif;
+    color:var(--ink);
+    margin:0;
+    font-weight:700;
+    letter-spacing:-0.01em;
+  }
+  a{color:var(--teal-deep);}
+  a:focus-visible, button:focus-visible, input:focus-visible{
+    outline:2px solid var(--focus);
+    outline-offset:3px;
+  }
+  img{max-width:100%; display:block;}
+  .wrap{
+    max-width:1040px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+  .narrow{max-width:760px;}
+
+  /* ---- Nav ---- */
+  header.site{
+    position:sticky; top:0; z-index:40;
+    background:color-mix(in srgb, var(--ground) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .navrow{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0;
+  }
+  .brand{
+    font-family:"Manrope", sans-serif;
+    text-decoration:none;
+    color:var(--ink);
+    display:flex; flex-direction:column; gap:1px;
+    line-height:1.2;
+  }
+  .brand .name{
+    font-weight:800;
+    font-size:17px;
+    letter-spacing:-0.01em;
+  }
+  .brand .role{
+    font-weight:600;
+    font-size:11.5px;
+    letter-spacing:.02em;
+    color:var(--teal-deep);
+  }
+  nav.links{
+    display:flex; gap:28px;
+  }
+  nav.links a{
+    color:var(--ink-soft);
+    text-decoration:none;
+    font-size:15px;
+    font-weight:500;
+  }
+  nav.links a:hover{color:var(--teal-deep);}
+  .nav-cta{
+    background:var(--teal);
+    color:#fff !important;
+    padding:9px 18px;
+    border-radius:var(--radius);
+    font-weight:600;
+    font-size:14.5px;
+    text-decoration:none;
+  }
+  .nav-cta:hover{background:var(--teal-deep);}
+  .menu-btn{display:none;}
+
+  @media (max-width: 760px){
+    nav.links{display:none;}
+    .menu-btn{
+      display:inline-flex; background:none; border:1px solid var(--line);
+      padding:8px 14px; border-radius:var(--radius); color:var(--ink);
+      font-size:14px; font-family:"DM Sans",sans-serif; cursor:pointer;
+    }
+    nav.links.open{
+      display:flex; flex-direction:column; gap:2px;
+      position:absolute; top:100%; left:0; right:0;
+      background:var(--paper); border-bottom:1px solid var(--line);
+      padding:10px 28px 18px;
+    }
+    nav.links.open a{padding:10px 0; border-bottom:1px solid var(--line-soft);}
+  }
+
+  /* ---- Hero ---- */
+  section.hero{
+    position:relative;
+    padding:76px 0 84px;
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+    background-image:
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size: 42px 42px;
+    background-position: center -1px;
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 96%);
+    mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 96%);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap:56px;
+    align-items:center;
+  }
+  .eyebrow{
+    color:var(--teal-deep);
+    font-weight:600;
+    font-size:14.5px;
+    margin-bottom:18px;
+  }
+  h1.headline{
+    font-size:clamp(32px, 4.4vw, 48px);
+    line-height:1.14;
+    max-width:16ch;
+  }
+  .hero-sub{
+    margin-top:22px;
+    max-width:54ch;
+    font-size:18px;
+    color:var(--ink-soft);
+  }
+  .service-line{
+    margin-top:30px;
+    display:flex; flex-wrap:wrap; gap:10px;
+  }
+  .service-line span{
+    border:1px solid var(--line);
+    background:var(--paper);
+    padding:8px 16px;
+    border-radius:var(--radius);
+    font-size:14.5px;
+    font-weight:500;
+    color:var(--ink-soft);
+  }
+  .hero-actions{
+    margin-top:34px;
+    display:flex; gap:16px; flex-wrap:wrap; align-items:center;
+  }
+  .btn-primary{
+    background:var(--teal);
+    color:#fff;
+    text-decoration:none;
+    padding:14px 26px;
+    border-radius:var(--radius);
+    font-weight:600;
+    font-size:15.5px;
+    display:inline-block;
+    transition:background-color .18s ease, transform .18s ease;
+  }
+  .btn-primary:hover{background:var(--teal-deep); transform:translateY(-1px);}
+  .btn-secondary{
+    color:var(--ink);
+    text-decoration:none;
+    font-weight:500;
+    font-size:15.5px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:2px;
+    transition:border-color .18s ease, color .18s ease;
+  }
+  .btn-secondary:hover{color:var(--teal-deep); border-color:var(--teal-deep);}
+  .hero-proof{
+    margin-top:30px;
+    font-size:13.5px;
+    color:var(--ink-soft);
+    display:flex; align-items:center; gap:10px;
+  }
+  .hero-proof .dot{width:5px; height:5px; border-radius:50%; background:var(--sage); flex:none;}
+
+  /* ---- Services strip ---- */
+  section.services{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .services-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .service-card{
+    padding:34px 28px;
+    border-left:1px solid var(--line);
+    transition:background-color .18s ease;
+  }
+  .service-card:first-child{border-left:none;}
+  .service-card:hover{background:var(--accent-wash);}
+  .service-num{
+    font-family:"Manrope", sans-serif;
+    font-weight:800;
+    font-size:12.5px;
+    color:var(--sage);
+    margin-bottom:16px;
+  }
+  .service-icon{width:26px; height:26px; color:var(--teal); margin-bottom:14px;}
+  .service-icon svg{width:100%; height:100%;}
+  .service-name{
+    font-family:"Manrope", sans-serif;
+    font-weight:700;
+    font-size:15.5px;
+    line-height:1.35;
+  }
+  @media (max-width:800px){
+    .services-grid{grid-template-columns:1fr 1fr;}
+    .service-card{border-left:none; border-top:1px solid var(--line);}
+    .service-card:nth-child(odd){border-right:1px solid var(--line);}
+    .service-card:first-child, .service-card:nth-child(2){border-top:none;}
+  }
+  @media (max-width:520px){
+    .services-grid{grid-template-columns:1fr;}
+    .service-card{border-right:none !important;}
+    .service-card:nth-child(2){border-top:1px solid var(--line);}
+  }
+
+  .hero-portrait{
+    position:relative;
+    justify-self:end;
+    width:100%;
+    max-width:340px;
+  }
+  .hero-portrait .shape{
+    position:absolute;
+    top:22px; left:-22px;
+    width:100%; height:100%;
+    background:var(--accent-wash);
+    border:1px solid var(--line);
+    z-index:0;
+  }
+  .hero-portrait .frame{
+    position:relative;
+    z-index:1;
+    aspect-ratio: 4 / 5;
+    overflow:hidden;
+    border:1px solid var(--line);
+    background:var(--paper);
+    box-shadow: 0 22px 44px -28px rgba(20,40,35,.35);
+  }
+  .hero-portrait .frame img{
+    width:100%; height:100%; object-fit:cover; object-position: 50% 18%;
+    filter:saturate(0.97);
+  }
+  .hero-portrait .tag{
+    position:absolute; z-index:2;
+    bottom:-16px; left:-16px;
+    background:var(--teal-deep);
+    color:#fff;
+    padding:9px 14px;
+    font-size:12.5px;
+    font-weight:600;
+    letter-spacing:.01em;
+    box-shadow: 0 10px 22px -12px rgba(20,40,35,.45);
+  }
+  @media (max-width: 860px){
+    .hero-grid{grid-template-columns:1fr; gap:40px;}
+    .hero-portrait{justify-self:start; max-width:220px; order:-1;}
+    h1.headline{max-width:none;}
+  }
+
+  /* ---- Section shell ---- */
+  section.block{
+    padding:76px 0;
+    border-bottom:1px solid var(--line);
+  }
+  section.block:last-of-type{border-bottom:none;}
+  .section-head{
+    max-width:640px;
+    margin-bottom:48px;
+  }
+  .section-kicker{
+    color:var(--teal-deep);
+    font-weight:600;
+    font-size:14px;
+    margin-bottom:10px;
+  }
+  h2.section-title{
+    font-size:clamp(26px, 3.4vw, 34px);
+    line-height:1.2;
+  }
+  .section-desc{
+    margin-top:14px;
+    color:var(--ink-soft);
+    font-size:16.5px;
+    max-width:58ch;
+  }
+
+  /* ---- What I help with ---- */
+  section.block#help{background:var(--paper);}
+  .problem-list{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .problem-row{
+    background:var(--paper);
+    padding:34px 32px;
+    transition:background-color .18s ease;
+    border-top:2px solid transparent;
+  }
+  .problem-row:nth-child(odd){border-top-color:var(--teal);}
+  .problem-row:nth-child(even){border-top-color:var(--sage);}
+  .problem-row:hover{background:var(--accent-wash);}
+  .problem-icon{
+    width:34px; height:34px;
+    margin-bottom:18px;
+    color:var(--teal);
+  }
+  .problem-icon svg{width:100%; height:100%; display:block;}
+  .problem-q{
+    font-family:"Manrope", sans-serif;
+    font-weight:700;
+    font-size:18.5px;
+    color:var(--ink);
+  }
+  .problem-a{
+    margin-top:10px;
+    color:var(--ink-soft);
+    font-size:15px;
+  }
+  @media (max-width: 700px){
+    .problem-list{grid-template-columns:1fr;}
+    .problem-row{padding:28px 24px;}
+  }
+
+  /* ---- How I work ---- */
+  .diff-quote{
+    font-family:"Manrope", sans-serif;
+    font-weight:600;
+    font-size:22px;
+    line-height:1.5;
+    color:var(--ink);
+    max-width:34ch;
+    border-left:3px solid var(--teal);
+    padding-left:24px;
+  }
+  .process-rail{
+    margin-top:56px;
+    display:grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap:0;
+  }
+  .process-step{
+    position:relative;
+    padding:0 18px 0 0;
+    border-left:1px solid var(--line);
+    padding-left:18px;
+  }
+  .process-step:first-child{border-left:none; padding-left:0;}
+  .process-step:not(:first-child)::before{
+    content:"";
+    position:absolute;
+    left:-4px; top:0;
+    width:7px; height:7px;
+    border-radius:50%;
+    background:var(--ground);
+    border:1px solid var(--sage);
+  }
+  .process-num{
+    font-family:"Manrope", sans-serif;
+    font-weight:800;
+    font-size:13px;
+    color:var(--sage);
+    margin-bottom:10px;
+  }
+  .process-title{
+    font-family:"Manrope", sans-serif;
+    font-weight:700;
+    font-size:16px;
+    margin-bottom:8px;
+  }
+  .process-desc{
+    font-size:14px;
+    color:var(--ink-soft);
+    line-height:1.55;
+  }
+  @media (max-width: 900px){
+    .process-rail{grid-template-columns:1fr 1fr;}
+    .process-step{border-left:none; padding-left:0; padding-top:20px; border-top:1px solid var(--line);}
+    .process-step:first-child{border-top:none; padding-top:0;}
+  }
+  .reach-note{
+    margin-top:48px;
+    padding:22px 26px;
+    background:var(--accent-wash);
+    border-radius:var(--radius);
+    font-size:15px;
+    color:var(--ink-soft);
+  }
+  .reach-note strong{color:var(--ink); font-weight:600;}
+
+  /* ---- Experience ---- */
+  .exp-entry{
+    display:grid;
+    grid-template-columns: 190px 1fr;
+    gap:32px;
+    padding:32px 0;
+    border-top:1px solid var(--line);
+  }
+  .exp-entry:last-child{border-bottom:1px solid var(--line);}
+  .exp-dates{
+    font-size:14px;
+    color:var(--ink-soft);
+    font-weight:500;
+  }
+  .exp-current{
+    display:inline-block;
+    margin-top:8px;
+    font-size:11.5px;
+    font-weight:700;
+    color:var(--teal-deep);
+    background:var(--accent-wash);
+    padding:3px 9px;
+    border-radius:20px;
+    letter-spacing:.02em;
+  }
+  .exp-role{
+    font-family:"Manrope", sans-serif;
+    font-weight:700;
+    font-size:18px;
+  }
+  .exp-org{
+    color:var(--ink-soft);
+    font-size:15px;
+    margin-top:2px;
+  }
+  .exp-detail{
+    margin-top:12px;
+    font-size:15px;
+    color:var(--ink-soft);
+    max-width:60ch;
+  }
+  .exp-tools{
+    margin-top:12px;
+    font-size:13.5px;
+    color:var(--sage);
+  }
+  @media (max-width: 700px){
+    .exp-entry{grid-template-columns:1fr; gap:6px;}
+  }
+  .exp-compressed{
+    padding:26px 0 6px;
+    font-size:14.5px;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
+
+  .toolbelt{
+    margin-top:56px;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:36px;
+  }
+  .tool-group-label{
+    font-size:12.5px;
+    font-weight:700;
+    letter-spacing:.03em;
+    color:var(--sage);
+    margin-bottom:10px;
+  }
+  .tool-group ul{list-style:none; padding:0; margin:0;}
+  .tool-group li{
+    padding:7px 0;
+    border-top:1px solid var(--line-soft);
+    font-size:15px;
+  }
+  .tool-group li:last-child{border-bottom:1px solid var(--line-soft);}
+  @media (max-width:700px){.toolbelt{grid-template-columns:1fr 1fr;}}
+
+  .cert-block{
+    margin-top:40px;
+    padding-top:28px;
+    border-top:1px solid var(--line);
+  }
+  .cert-block-label{
+    font-size:12.5px;
+    font-weight:700;
+    letter-spacing:.03em;
+    text-transform:uppercase;
+    color:var(--sage);
+    margin-bottom:16px;
+  }
+  .cert-rows{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:24px;
+    margin-bottom:18px;
+  }
+  .cert-item{font-size:14.5px;}
+  .cert-item .cn{font-weight:600; color:var(--ink);}
+  .cert-item .cy{color:var(--ink-soft); font-size:13px; margin-top:2px;}
+  .cert-foot{font-size:13.5px; color:var(--ink-soft);}
+  .cert-foot strong{color:var(--ink); font-weight:600;}
+  @media (max-width:700px){.cert-rows{grid-template-columns:1fr 1fr; gap:18px;}}
+
+  /* ---- Proof / case studies ---- */
+  section.block#proof{background:var(--ground-2);}
+  .case{
+    border:1px solid var(--line);
+    background:var(--paper);
+    padding:40px;
+    margin-bottom:28px;
+    transition:box-shadow .2s ease, transform .2s ease;
+  }
+  .case:hover{
+    box-shadow: 0 24px 48px -32px rgba(20,40,35,.28);
+    transform:translateY(-2px);
+  }
+  .case-eyebrow{
+    display:flex; justify-content:space-between; align-items:baseline;
+    flex-wrap:wrap; gap:10px;
+    margin-bottom:22px;
+  }
+  .case-client{
+    font-family:"Manrope", sans-serif;
+    font-weight:700;
+    font-size:20px;
+  }
+  .case-tag{
+    font-size:13px;
+    color:var(--teal-deep);
+    font-weight:600;
+    background:var(--accent-wash);
+    padding:4px 10px;
+    border-radius:20px;
+  }
+  .case-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:32px;
+  }
+  .case-label{
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.03em;
+    color:var(--sage);
+    margin-bottom:8px;
+    text-transform:uppercase;
+  }
+  .case-block{font-size:15px; color:var(--ink-soft); line-height:1.6;}
+  .case-block ul{margin:0; padding-left:18px;}
+  .case-block li{margin-bottom:4px;}
+  @media (max-width:700px){
+    .case{padding:26px;}
+    .case-grid{grid-template-columns:1fr; gap:22px;}
+  }
+  blockquote.testimonial{
+    margin:26px 0 0;
+    padding:22px 24px;
+    border-left:3px solid var(--sage);
+    background:var(--accent-wash);
+    font-size:15.5px;
+    font-style:italic;
+    color:var(--ink);
+    line-height:1.65;
+  }
+  blockquote.testimonial cite{
+    display:block;
+    margin-top:12px;
+    font-style:normal;
+    font-size:13.5px;
+    color:var(--ink-soft);
+    font-weight:500;
+  }
+
+  .sample-report{
+    border:1px solid var(--line);
+    background:var(--paper);
+    padding:0;
+    margin-top:8px;
+    overflow:hidden;
+  }
+  .sample-report .sr-head{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    padding:26px 36px 22px;
+    border-bottom:1px solid var(--line);
+    background:var(--accent-wash);
+  }
+  .sample-report h4{font-size:15px; margin-bottom:2px;}
+  .sample-report .sr-sub{font-size:13px; color:var(--ink-soft);}
+  .sample-report .sr-badge{
+    font-size:11.5px; font-weight:700; letter-spacing:.03em; text-transform:uppercase;
+    color:var(--teal-deep); background:var(--paper); border:1px solid var(--line);
+    padding:5px 11px; white-space:nowrap;
+  }
+  .sample-report .sr-body{padding:30px 36px 34px;}
+  table.pl{width:100%; border-collapse:collapse; font-size:14px;}
+  table.pl td{padding:7px 0; border-bottom:1px solid var(--line-soft);}
+  table.pl td.amt{text-align:right; font-variant-numeric:tabular-nums; color:var(--ink-soft);}
+  table.pl tr.total td{font-weight:700; color:var(--ink); border-top:1px solid var(--ink); border-bottom:none;}
+  table.pl tr.section td{padding-top:18px; font-weight:700; color:var(--teal-deep); font-size:12.5px; letter-spacing:.03em; text-transform:uppercase; border-bottom:none;}
+  .confidentiality{
+    margin-top:36px;
+    padding:22px 26px;
+    background:var(--ground-2);
+    border-radius:var(--radius);
+    font-size:14px;
+    color:var(--ink-soft);
+    line-height:1.6;
+  }
+
+  /* ---- About / contact ---- */
+  .about-grid{
+    display:grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap:56px;
+  }
+  @media (max-width:800px){.about-grid{grid-template-columns:1fr; gap:36px;}}
+  .about-copy p{color:var(--ink-soft); font-size:16px; margin:0 0 16px;}
+  .dev-line{
+    margin-top:20px;
+    font-size:14px;
+    color:var(--ink-soft);
+  }
+  .dev-line strong{color:var(--ink); font-weight:600;}
+
+  .contact-card{
+    border:1px solid var(--line);
+    background:var(--paper);
+    padding:32px;
+  }
+  .contact-card h3{font-size:17px; margin-bottom:18px;}
+  .contact-row{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:12px 0; border-top:1px solid var(--line-soft);
+    font-size:14.5px;
+  }
+  .contact-row:first-of-type{border-top:none;}
+  .contact-row a{color:var(--ink); text-decoration:none; font-weight:500;}
+  .contact-row a:hover{color:var(--teal-deep);}
+  .contact-card .btn-primary{
+    display:block; text-align:center; margin-top:22px; width:100%;
+  }
+
+  /* ---- Final CTA band ---- */
+  section.cta-band{
+    background:var(--teal-deep);
+    padding:64px 0;
+  }
+  .cta-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:28px; flex-wrap:wrap;
+  }
+  .cta-inner h3{
+    color:#fff;
+    font-size:clamp(22px, 2.6vw, 28px);
+    max-width:26ch;
+    line-height:1.3;
+  }
+  .cta-band .btn-primary{
+    background:#fff;
+    color:var(--teal-deep);
+    flex:none;
+  }
+  .cta-band .btn-primary:hover{background:var(--ground); transform:translateY(-1px);}
+
+  footer.site{
+    padding:36px 0 56px;
+    font-size:13.5px;
+    color:var(--ink-soft);
+  }
+  .footer-inner{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px;
+    padding-top:28px; border-top:1px solid var(--line);
+  }
+  .footer-brand{font-family:"Manrope", sans-serif; font-weight:700; color:var(--ink); font-size:14.5px; margin-bottom:4px;}
+  footer.site a{color:var(--ink-soft);}
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition-duration:0.001ms !important; animation-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  .needs-verification{
+    display:inline-block;
+    font-size:11.5px;
+    font-weight:600;
+    color:#a5670f;
+    background:#fdf1de;
+    padding:2px 8px;
+    border-radius:20px;
+    margin-left:8px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]) .needs-verification{background:#3a2c14; color:#e6b969;}
+  }
+  :root[data-theme="dark"] .needs-verification{background:#3a2c14; color:#e6b969;}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap navrow">
+    <a class="brand" href="#top"><span class="name">Carla Jaypee Tee</span><span class="role">Bookkeeping &amp; Financial Operations</span></a>
+    <nav class="links" id="navLinks">
+      <a href="#help">What I Help With</a>
+      <a href="#work">How I Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#proof">Proof</a>
+      <a href="#about">About</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    <a class="nav-cta" href="#contact">Get in touch</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Bookkeeping &amp; Financial Operations</div>
+        <h1 class="headline">Books that are current, categorized, and reconciled. Every month.</h1>
+        <p class="hero-sub">I handle bookkeeping and financial operations for service-based businesses, including QuickBooks Online and Xero bookkeeping, reconciliations, financial reporting, and cleanup when the books have fallen behind.</p>
+        <p class="hero-sub" style="margin-top:12px;">Over a decade of bookkeeping experience, within a broader career spanning nearly twenty years across finance and operations.</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#contact">Get in touch</a>
+          <a class="btn-secondary" href="#proof">See the work</a>
+        </div>
+        <div class="hero-proof"><span class="dot"></span> QuickBooks Online &middot; Xero &middot; Zoho Books &middot; Based in Metro Manila</div>
+      </div>
+      <div class="hero-portrait">
+        <div class="shape" aria-hidden="true"></div>
+        <div class="frame">
+          <img src="images/carla-headshot.jpg" alt="Portrait of Carla Jaypee Tee">
+        </div>
+        <div class="tag">Carla Jaypee Tee</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="wrap">
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-num">01</div>
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3.5" y="4" width="17" height="16" rx="1"/><path d="M7 9h10M7 13h10M7 17h6"/></svg></div>
+          <div class="service-name">Monthly Bookkeeping</div>
+        </div>
+        <div class="service-card">
+          <div class="service-num">02</div>
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg></div>
+          <div class="service-name">Cleanup &amp; Catch-Up</div>
+        </div>
+        <div class="service-card">
+          <div class="service-num">03</div>
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19V9m6 10V4m6 15v-7"/><path d="M3 19h18"/></svg></div>
+          <div class="service-name">Financial Reporting</div>
+        </div>
+        <div class="service-card">
+          <div class="service-num">04</div>
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h18M3 7l2-3h14l2 3M3 7v12a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V7"/><path d="M9 11h6"/></svg></div>
+          <div class="service-name">Financial Operations Support</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="help">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-kicker">What I Help With</div>
+        <h2 class="section-title">The problems that usually bring someone to a bookkeeper</h2>
+      </div>
+      <div class="problem-list">
+        <div class="problem-row">
+          <div class="problem-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h13a2 2 0 0 1 2 2v13a1 1 0 0 1-1.6.8L14 17H6a2 2 0 0 1-2-2V4Z"/><path d="M8 9h8M8 13h5"/></svg></div>
+          <div class="problem-q">"My books are behind and I don't trust the numbers."</div>
+          <div class="problem-a">Cleanup and catch-up work: resolving unreconciled transactions, fixing miscategorization, finding missing or duplicate entries, and bringing records current so you can rely on them again.</div>
+        </div>
+        <div class="problem-row">
+          <div class="problem-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19V9m6 10V4m6 15v-7"/><path d="M3 19h18"/></svg></div>
+          <div class="problem-q">"I don't know where I actually stand."</div>
+          <div class="problem-a">Month-end close, monthly and financial reporting, and cash flow visibility, so you can see your position without digging for it.</div>
+        </div>
+        <div class="problem-row">
+          <div class="problem-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h18M3 7l2-3h14l2 3M3 7v12a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V7"/><path d="M9 11h6"/></svg></div>
+          <div class="problem-q">"Billing, vendors, and approvals live in my head."</div>
+          <div class="problem-a">Accounts payable and receivable, invoicing and billing, and vendor and procurement workflow, handled on a schedule instead of an as-remembered basis.</div>
+        </div>
+        <div class="problem-row">
+          <div class="problem-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg></div>
+          <div class="problem-q">"We rebuild the same process every month."</div>
+          <div class="problem-a">Financial process documentation and standard operating procedures, so the work doesn't depend on memory or on one person.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-kicker">How I Work</div>
+        <h2 class="section-title">Bookkeeping, informed by having run the operations behind it</h2>
+      </div>
+      <p class="diff-quote">Most bookkeepers record what happened. I spent a decade running procurement, vendor management, and business operations before I moved into the books &mdash; so I can usually see why a transaction is wrong, not just that it won't reconcile.</p>
+
+      <div class="process-rail">
+        <div class="process-step">
+          <div class="process-num">01</div>
+          <div class="process-title">Onboarding</div>
+          <div class="process-desc">A short review of your current books and systems before anything changes.</div>
+        </div>
+        <div class="process-step">
+          <div class="process-num">02</div>
+          <div class="process-title">System access</div>
+          <div class="process-desc">Set up in QuickBooks Online or Xero, with a clear view of what's already there.</div>
+        </div>
+        <div class="process-step">
+          <div class="process-num">03</div>
+          <div class="process-title">Cleanup, if needed</div>
+          <div class="process-desc">Backlog resolved and records brought current before ongoing work begins.</div>
+        </div>
+        <div class="process-step">
+          <div class="process-num">04</div>
+          <div class="process-title">Monthly cadence</div>
+          <div class="process-desc">Reconciliation, categorization, and bookkeeping on a fixed schedule.</div>
+        </div>
+        <div class="process-step">
+          <div class="process-num">05</div>
+          <div class="process-title">Reporting</div>
+          <div class="process-desc">Financial reports you can actually read, delivered on a rhythm you can count on.</div>
+        </div>
+      </div>
+
+      <div class="reach-note">
+        <strong>Based in Manila, working across time zones.</strong> Experience supporting clients and employers in the United States, Australia, the United Kingdom, and the Middle East.
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="experience" style="background:var(--paper);">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-kicker">Experience &amp; Systems</div>
+        <h2 class="section-title">Over a decade in the books</h2>
+        <p class="section-desc">Within a broader career of nearly twenty years across finance, operations, and administration.</p>
+      </div>
+
+      <div class="exp-list">
+
+        <div class="exp-entry">
+          <div>
+            <div class="exp-dates">Aug 2020 &ndash; Present</div>
+            <span class="exp-current">Current</span>
+          </div>
+          <div>
+            <div class="exp-role">Bookkeeper &amp; Operations Partner</div>
+            <div class="exp-org">A. Saberi Interiors &middot; Interior Design</div>
+            <div class="exp-detail">Full-cycle bookkeeping and day-to-day operations support for a growing interior design firm. Started with a cleanup engagement; ongoing bookkeeping and financial reporting since.</div>
+            <div class="exp-tools">QuickBooks Online</div>
+          </div>
+        </div>
+
+        <div class="exp-entry">
+          <div><div class="exp-dates">Jul 2017 &ndash; Jul 2022</div></div>
+          <div>
+            <div class="exp-role">Bookkeeper, Financial Operations</div>
+            <div class="exp-org">Contango IT &middot; Managed Service Provider</div>
+            <div class="exp-detail">Bookkeeping and financial workflows for a technology services business, working across an accounting platform and a service management platform in parallel &mdash; billing, reconciliations, and vendor and licensing administration.</div>
+            <div class="exp-tools">QuickBooks Online &middot; ConnectWise Manage</div>
+          </div>
+        </div>
+
+        <div class="exp-entry">
+          <div><div class="exp-dates">2013 &ndash; 2017</div></div>
+          <div>
+            <div class="exp-role">Freelance Bookkeeper</div>
+            <div class="exp-org">Independent &middot; Australia &amp; United Kingdom</div>
+            <div class="exp-detail">Bookkeeping for clients across engineering recruitment, interior design and construction, and e-commerce, including a bookkeeping and office management engagement for Dean Taylor Bathrooms and a full-charge bookkeeping role supporting an Australian consulting business.</div>
+            <div class="exp-tools">Xero &middot; Zoho Books</div>
+          </div>
+        </div>
+
+        <div class="exp-compressed">
+          Earlier: operations, procurement, and document control leadership across recruitment, consumer electronics, retail, and engineering &amp; construction (2006&ndash;2016), including SAP DMS document control on international EPC projects.
+        </div>
+
+      </div>
+
+      <div class="toolbelt">
+        <div class="tool-group">
+          <div class="tool-group-label">Accounting Platforms</div>
+          <ul>
+            <li>QuickBooks Online</li>
+            <li>Xero</li>
+            <li>Zoho Books</li>
+          </ul>
+        </div>
+        <div class="tool-group">
+          <div class="tool-group-label">Service &amp; Operations</div>
+          <ul>
+            <li>ConnectWise Manage</li>
+            <li>SAP DMS</li>
+          </ul>
+        </div>
+        <div class="tool-group">
+          <div class="tool-group-label">Reporting &amp; Documentation</div>
+          <ul>
+            <li>Microsoft Excel</li>
+            <li>Google Workspace</li>
+            <li>Microsoft 365</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cert-block">
+        <div class="cert-block-label">Certifications &amp; Training</div>
+        <div class="cert-rows">
+          <div class="cert-item">
+            <div class="cn">QuickBooks Online Certified ProAdvisor</div>
+            <div class="cy">2021, 2022</div>
+          </div>
+          <div class="cert-item">
+            <div class="cn">Xero Advisor Certified</div>
+            <div class="cy">2021</div>
+          </div>
+          <div class="cert-item">
+            <div class="cn">Xero Payroll Certified</div>
+            <div class="cy">2022</div>
+          </div>
+        </div>
+        <div class="cert-foot">Continuing education in Australian, U.S., and Philippine accounting and taxation (2021&ndash;2022).</div>
+        <div class="cert-foot" style="margin-top:10px;"><strong>Currently developing:</strong> workflow automation tooling and AI-assisted process design.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="proof">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-kicker">Case Studies &amp; Proof</div>
+        <h2 class="section-title">What the work actually looked like</h2>
+      </div>
+
+      <div class="case">
+        <div class="case-eyebrow">
+          <div class="case-client">A. Saberi Interiors</div>
+          <div class="case-tag">Bookkeeping Cleanup + Ongoing Operations</div>
+        </div>
+        <div class="case-grid">
+          <div class="case-block">
+            <div class="case-label">Challenge</div>
+            <p>When this engagement began in August 2020, the books were disorganized and approximately two years behind.</p>
+            <div class="case-label" style="margin-top:20px;">Work Performed</div>
+            <ul>
+              <li>Reviewed and cleaned historical records</li>
+              <li>Resolved unreconciled transactions</li>
+              <li>Corrected categorization issues</li>
+              <li>Identified missing transactions</li>
+              <li>Removed duplicate transactions</li>
+              <li>Addressed accounts payable and receivable issues</li>
+              <li>Brought records current</li>
+            </ul>
+          </div>
+          <div class="case-block">
+            <div class="case-label">Systems</div>
+            <p>QuickBooks Online</p>
+            <div class="case-label" style="margin-top:20px;">Outcome</div>
+            <p>Books were brought up to date and have been maintained through ongoing bookkeeping and operations support since 2020.</p>
+          </div>
+        </div>
+        <blockquote class="testimonial">
+          "Before working with Carla, keeping our bookkeeping and day-to-day operations organized was becoming difficult and time-consuming. She helped us get our books and records in order, kept everything updated and organized, and took care of important operational tasks so we could focus more on running and growing our business. Having Carla handle our bookkeeping and operations has given us greater peace of mind and confidence that everything is being properly taken care of."
+          <cite>&mdash; A. Saberi Interiors, bookkeeping and operations client</cite>
+        </blockquote>
+      </div>
+
+      <div class="case">
+        <div class="case-eyebrow">
+          <div class="case-client">Dean Taylor Bathrooms</div>
+          <div class="case-tag">Bookkeeping Cleanup + Xero</div>
+        </div>
+        <div class="case-grid">
+          <div class="case-block">
+            <div class="case-label">Engagement</div>
+            <p>Freelance bookkeeping and office management, Kendal, UK. April&ndash;October 2017.</p>
+            <div class="case-label" style="margin-top:20px;">Work Performed</div>
+            <ul>
+              <li>Bookkeeping cleanup and catch-up</li>
+              <li>Kept Xero organized and current</li>
+              <li>Matched Xero balances against the bank</li>
+              <li>Checked Xero bills against AP invoices</li>
+              <li>Set up suppliers and customers</li>
+              <li>Generated proposals and invoices</li>
+            </ul>
+          </div>
+          <div class="case-block">
+            <div class="case-label">Systems</div>
+            <p>Xero</p>
+            <div class="case-label" style="margin-top:20px;">Outcome</div>
+            <p>The bookkeeping records were cleaned up and brought into an organized, maintainable state in Xero.</p>
+          </div>
+        </div>
+        <blockquote class="testimonial">
+          "Carla was a fantastic asset to our business. Loyal, knowledgeable and extremely dedicated. I very much enjoyed working with her. She has excellent IT skills, bookkeeping, administration, web skills, is very organized and also creative. I am happy to thoroughly recommend Carla."
+          <cite>&mdash; Izzy &amp; Dean, Dean Taylor Bathrooms</cite>
+        </blockquote>
+      </div>
+
+      <div class="case">
+        <div class="case-eyebrow">
+          <div class="case-client">Baggy Caps / CleverScore</div>
+          <div class="case-tag">Full-Charge Bookkeeping + Australian Financial Operations</div>
+        </div>
+        <div class="case-grid">
+          <div class="case-block">
+            <div class="case-label">Engagement</div>
+            <p>Part-time bookkeeper, Perth, Australia. June&ndash;December 2016.</p>
+            <div class="case-label" style="margin-top:20px;">Work Performed</div>
+            <ul>
+              <li>Full-charge bookkeeping</li>
+              <li>Accounts payable and receivable</li>
+              <li>Account reconciliation</li>
+              <li>Monthly financial reports</li>
+              <li>Invoicing and billing</li>
+              <li>Payroll and BAS preparation</li>
+            </ul>
+          </div>
+          <div class="case-block">
+            <div class="case-label">Systems</div>
+            <p>Zoho Books</p>
+            <div class="case-label" style="margin-top:20px;">Outcome</div>
+            <p>Ongoing full-charge bookkeeping and financial reporting, including BAS preparation under the Australian tax system.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sample-report">
+        <div class="sr-head">
+          <div>
+            <h4>Financial Reporting Work Sample</h4>
+            <div class="sr-sub">Profit &amp; Loss &mdash; illustrative report structure</div>
+          </div>
+          <span class="sr-badge">Sample Data</span>
+        </div>
+        <div class="sr-body">
+        <table class="pl">
+          <tr class="section"><td colspan="2">Income</td></tr>
+          <tr><td>Design Income</td><td class="amt">4,750.00</td></tr>
+          <tr><td>Landscaping Services</td><td class="amt">10,050.00</td></tr>
+          <tr><td>Sales of Product Income</td><td class="amt">2,175.00</td></tr>
+          <tr class="total"><td>Total Income</td><td class="amt">16,975.00</td></tr>
+
+          <tr class="section"><td colspan="2">Cost of Goods Sold</td></tr>
+          <tr><td>Job Materials &amp; Equipment</td><td class="amt">3,140.00</td></tr>
+          <tr class="total"><td>Gross Profit</td><td class="amt">13,835.00</td></tr>
+
+          <tr class="section"><td colspan="2">Expenses</td></tr>
+          <tr><td>Advertising</td><td class="amt">210.00</td></tr>
+          <tr><td>Legal &amp; Professional Fees</td><td class="amt">2,300.00</td></tr>
+          <tr><td>Payroll Expenses</td><td class="amt">4,200.00</td></tr>
+          <tr><td>Rent &amp; Utilities</td><td class="amt">1,650.00</td></tr>
+          <tr class="total"><td>Net Operating Income</td><td class="amt">5,475.00</td></tr>
+        </table>
+        </div>
+      </div>
+
+      <div class="confidentiality">
+        <strong>A note on this sample:</strong> due to the confidential nature of client financial records, actual client books, statements, and transaction-level records are not published here. This example uses QuickBooks Online's standard sample company data (Craig's Design and Landscaping Services), not a real client's financial information, to demonstrate the type of financial reporting structure I work with.
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-kicker">About</div>
+        <h2 class="section-title">Carla Jaypee Tee</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-copy">
+          <p>I'm a bookkeeper and financial operations partner based in Metro Manila, working with service-based businesses in the United States, Australia, and the United Kingdom. Over a decade of that has been in the books directly &mdash; QuickBooks Online, Xero, and Zoho Books &mdash; within a broader career of nearly twenty years spanning finance, procurement, and business operations.</p>
+          <p>That earlier experience running vendor relationships, budgeting, and operational systems is why I tend to look past the transaction to the process that created it. It's also why cleanup work &mdash; bringing a backlog current and keeping it that way &mdash; is where I do some of my best work.</p>
+          <p>Coursework in Business Administration (Financial Management), Asian Institute for Distance Education.</p>
+          <div class="dev-line"><strong>Currently developing:</strong> workflow automation tooling and AI-assisted process design.</div>
+        </div>
+
+        <div class="contact-card" id="contact">
+          <h3>Get in touch</h3>
+          <div class="contact-row">
+            <span>Email</span>
+            <a href="mailto:tee.cjp@gmail.com">tee.cjp@gmail.com</a>
+          </div>
+          <div class="contact-row">
+            <span>LinkedIn</span>
+            <a href="https://www.linkedin.com/in/cjtee" target="_blank" rel="noopener">linkedin.com/in/cjtee</a>
+          </div>
+          <div class="contact-row">
+            <span>Based in</span>
+            <span>Metro Manila, PH</span>
+          </div>
+          <a class="btn-primary" href="mailto:tee.cjp@gmail.com?subject=Bookkeeping%20inquiry">Email Carla</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<section class="cta-band">
+  <div class="wrap cta-inner">
+    <h3>Need your books cleaned up, kept current, or turned into clearer financial reports?</h3>
+    <a class="btn-primary" href="mailto:tee.cjp@gmail.com?subject=Bookkeeping%20inquiry">Email Carla</a>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Carla Jaypee Tee</div>
+        <span>Bookkeeping + Financial Operations</span>
+        <div style="margin-top:6px;">Based in Metro Manila, Philippines</div>
+      </div>
+      <div style="text-align:right;">
+        <div><a href="mailto:tee.cjp@gmail.com">tee.cjp@gmail.com</a></div>
+        <div style="margin-top:6px;"><a href="https://www.linkedin.com/in/cjtee" target="_blank" rel="noopener">linkedin.com/in/cjtee</a></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var btn = document.getElementById('menuBtn');
+  var nav = document.getElementById('navLinks');
+  if (btn) {
+    btn.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+</script>
+
+</body>
+</html>
