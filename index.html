@@ -118,7 +118,8 @@
   }
   .navrow{
     display:flex; align-items:center; justify-content:space-between;
-    padding:18px 0;
+    padding-top:18px;
+    padding-bottom:18px;
   }
   .brand{
     font-family:"Manrope", sans-serif;
@@ -156,6 +157,8 @@
     font-weight:600;
     font-size:14.5px;
     text-decoration:none;
+    white-space:nowrap;
+    flex:none;
   }
   .nav-cta:hover{background:var(--teal-deep);}
   .menu-btn{display:none;}
@@ -804,6 +807,436 @@
     :root:not([data-theme="light"]) .needs-verification{background:#3a2c14; color:#e6b969;}
   }
   :root[data-theme="dark"] .needs-verification{background:#3a2c14; color:#e6b969;}
+
+  /* =====================================================================
+     WORKFLOWS & AUTOMATION  (added 2026-09-30)
+     Every rule in this block is new. Classes use the "wf-" prefix.
+     Existing rules above are unchanged.
+     ===================================================================== */
+
+  /* Nav fit: with six links, switch to the compact menu below 1140px.
+     Same menu styles as the existing 760px rule, applied a little earlier. */
+  @media (max-width: 1140px){
+    nav.links{display:none;}
+    .menu-btn{
+      display:inline-flex; background:none; border:1px solid var(--line);
+      padding:8px 14px; border-radius:var(--radius); color:var(--ink);
+      font-size:14px; font-family:"DM Sans",sans-serif; cursor:pointer;
+    }
+    nav.links.open{
+      display:flex; flex-direction:column; gap:2px;
+      position:absolute; top:100%; left:0; right:0;
+      background:var(--paper); border-bottom:1px solid var(--line);
+      padding:10px 28px 18px;
+    }
+    nav.links.open a{padding:10px 0; border-bottom:1px solid var(--line-soft);}
+  }
+  @media (min-width: 761px) and (max-width: 1140px){
+    .menu-btn{margin-left:auto; margin-right:14px;}
+  }
+
+  section.block.wf{background:var(--paper);}
+  #workflows, #wf-featured{scroll-margin-top:84px;}
+
+  /* ---- Section hero ---- */
+  .wf-hero{max-width:680px; margin-bottom:52px;}
+  .wf-hero-top{display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:12px;}
+  .wf-hero-top .section-kicker{margin-bottom:0;}
+  .wf-badge{
+    display:inline-block;
+    font-size:11px; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+    color:var(--teal-deep); background:var(--paper); border:1px solid var(--line);
+    padding:4px 10px; white-space:nowrap; line-height:1.4;
+  }
+  .wf-badge--demo{background:var(--accent-wash); border-color:var(--sage);}
+  .wf-hero-sub{
+    margin:16px 0 0;
+    font-family:"Manrope", sans-serif; font-weight:600;
+    font-size:19px; line-height:1.45; color:var(--ink);
+  }
+  .wf-hero .hero-actions{margin-top:28px;}
+
+  /* ---- Workflow card ---- */
+  .wf-card{
+    border:1px solid var(--line);
+    background:var(--paper);
+    padding:36px 40px 40px;
+  }
+  .wf-tabs{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px;}
+  .wf-tab{
+    font:inherit; font-size:14px; font-weight:600; color:var(--ink-soft);
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+    padding:9px 14px; min-height:44px; cursor:pointer;
+  }
+  .wf-tab[aria-selected="true"]{color:#fff; background:var(--teal); border-color:var(--teal);}
+  .wf-card-meta{display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:14px;}
+  .wf-count{font-size:13px; color:var(--ink-soft); font-weight:500;}
+  .wf-title{font-size:clamp(21px, 2.6vw, 26px); line-height:1.3;}
+  .wf-desc{margin:10px 0 0; color:var(--ink-soft); font-size:16px; max-width:62ch;}
+  .wf-disclaimer{
+    margin-top:20px;
+    display:flex; gap:10px; align-items:flex-start;
+    padding:12px 16px;
+    background:var(--ground);
+    border:1px dashed var(--line);
+    font-size:13.5px; color:var(--ink-soft); line-height:1.5;
+  }
+  .wf-disclaimer strong{color:var(--ink); font-weight:700; letter-spacing:.03em; font-size:12px; text-transform:uppercase; white-space:nowrap; padding-top:1px;}
+  .wf-legend{
+    display:flex; flex-wrap:wrap; gap:8px 18px;
+    margin-top:22px; font-size:13px; color:var(--ink-soft);
+  }
+  .wf-legend span{display:inline-flex; align-items:center; gap:7px;}
+  .wf-hint{margin-top:10px; font-size:13.5px; color:var(--ink-soft);}
+  .wf-hint b{color:var(--ink); font-weight:600;}
+
+  .wf-body{
+    margin-top:24px;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 330px;
+    gap:28px;
+    align-items:start;
+  }
+  .wf-canvas{
+    min-width:0;
+    padding:28px 24px 32px;
+    border:1px solid var(--line);
+    background-color:var(--ground);
+    background-image:
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size:28px 28px;
+  }
+
+  /* Type markers (status indicators) */
+  .wf-mark{width:8px; height:8px; border-radius:50%; background:var(--sage); flex:none; display:inline-block;}
+  .wf-mark--trigger{background:var(--teal);}
+  .wf-mark--action{background:var(--sage);}
+  .wf-mark--ai{background:transparent; border:1.5px solid var(--teal); width:9px; height:9px;}
+  .wf-mark--condition{border-radius:0; width:7px; height:7px; transform:rotate(45deg); background:var(--ink-soft);}
+  .wf-mark--outcome{border-radius:1px; background:var(--teal-deep);}
+
+  /* Nodes */
+  .wf-spine{max-width:360px; margin:0 auto;}
+  .wf-node{
+    --wf-tone:var(--sage);
+    display:block; width:100%;
+    text-align:left;
+    font:inherit; color:var(--ink);
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-left:3px solid var(--wf-tone);
+    border-radius:var(--radius);
+    padding:11px 14px 12px;
+    min-height:44px;
+    cursor:pointer;
+    scroll-margin-top:90px;
+    transition:border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+  }
+  .wf-node--trigger{--wf-tone:var(--teal);}
+  .wf-node--ai{--wf-tone:var(--teal);}
+  .wf-node--condition{--wf-tone:var(--ink-soft);}
+  .wf-node--outcome{--wf-tone:var(--teal-deep);}
+  .wf-node:hover{border-color:var(--teal); border-left-color:var(--wf-tone); box-shadow:0 12px 24px -18px rgba(20,40,35,.45);}
+  .wf-node[aria-expanded="true"]{
+    background:var(--accent-wash);
+    border-color:var(--teal-deep);
+    box-shadow:0 0 0 1px var(--teal-deep);
+  }
+  .wf-node-top{
+    display:flex; justify-content:space-between; align-items:center; gap:8px;
+    font-size:11px; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .wf-type{display:inline-flex; align-items:center; gap:7px;}
+  .wf-num{font-family:"Manrope", sans-serif; font-weight:800; color:var(--sage); letter-spacing:.02em;}
+  .wf-node-title{font-family:"Manrope", sans-serif; font-weight:700; font-size:15.5px; line-height:1.3; margin-top:6px;}
+  .wf-node-sum{font-size:13.5px; color:var(--ink-soft); line-height:1.45; margin-top:2px;}
+  .wf-node--condition .wf-node-title{font-size:17px;}
+
+  /* Connectors */
+  .wf-link{position:relative; width:0; height:24px; margin:0 auto; border-left:1.5px solid var(--sage);}
+  .wf-link::after{
+    content:""; position:absolute; bottom:-1px; left:-6px;
+    border-left:5px solid transparent; border-right:5px solid transparent;
+    border-top:6px solid var(--sage);
+  }
+  .wf-link--plain::after{display:none;}
+  .wf-branch--no .wf-link{border-left-style:dashed;}
+
+  /* Branching */
+  .wf-split{
+    position:relative;
+    display:grid; grid-template-columns:1fr 1fr;
+    padding-top:24px;
+  }
+  .wf-split::before{
+    content:""; position:absolute; top:0; left:25%; right:25%;
+    border-top:1.5px solid var(--sage);
+  }
+  .wf-branch{position:relative; padding:0 10px; min-width:0;}
+  .wf-branch::before{
+    content:""; position:absolute; top:-24px; left:50%; height:24px;
+    border-left:1.5px solid var(--sage);
+  }
+  .wf-branch--no::before{border-left-style:dashed;}
+  .wf-branch-head{text-align:center;}
+  .wf-pill{
+    display:inline-flex; align-items:center; gap:7px;
+    font-size:12px; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
+    padding:5px 11px; border-radius:20px; line-height:1.3;
+    border:1px solid var(--line); background:var(--paper); color:var(--ink-soft);
+  }
+  .wf-pill b{font-weight:800;}
+  .wf-branch--yes .wf-pill{background:var(--teal); border-color:var(--teal); color:#fff;}
+  .wf-branch--no .wf-pill{border-style:dashed; border-color:var(--sage);}
+  .wf-loop{
+    margin-top:14px;
+    display:flex; gap:8px; align-items:flex-start;
+    border:1px dashed var(--sage);
+    background:var(--paper);
+    padding:10px 12px;
+    font-size:13px; color:var(--ink-soft); line-height:1.45;
+  }
+  .wf-loop svg{width:16px; height:16px; flex:none; color:var(--teal); margin-top:1px;}
+
+  /* Detail panel */
+  .wf-panel{
+    position:sticky; top:92px;
+    border:1px solid var(--line);
+    border-top:3px solid var(--teal);
+    background:var(--paper);
+    padding:22px 24px 20px;
+    scroll-margin-top:90px;
+  }
+  .wf-panel[hidden]{display:none;}
+  .wf-panel-top{display:flex; justify-content:space-between; align-items:center; gap:10px;}
+  .wf-panel-kicker{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:12px; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
+    color:var(--teal-deep);
+  }
+  .wf-close{
+    display:none;
+    font:inherit; font-size:13.5px; font-weight:600; color:var(--ink-soft);
+    background:none; border:1px solid var(--line); border-radius:var(--radius);
+    padding:8px 12px; min-height:40px; cursor:pointer;
+  }
+  .wf-panel-title{font-size:20px; margin-top:8px; line-height:1.3;}
+  .wf-block{margin-top:18px;}
+  .wf-block-label{
+    font-size:12px; font-weight:700; letter-spacing:.03em; text-transform:uppercase;
+    color:var(--sage); margin-bottom:6px;
+  }
+  .wf-block p{margin:0; font-size:14.5px; color:var(--ink-soft); line-height:1.55;}
+  .wf-list{list-style:none; margin:0; padding:0;}
+  .wf-list li{
+    position:relative; padding:6px 0 6px 18px;
+    border-top:1px solid var(--line-soft);
+    font-size:14.5px; color:var(--ink); line-height:1.45;
+  }
+  .wf-list li:last-child{border-bottom:1px solid var(--line-soft);}
+  .wf-list li::before{
+    content:""; position:absolute; left:3px; top:14px;
+    width:6px; height:6px; border-radius:50%; background:var(--sage);
+  }
+  .wf-note{
+    margin-top:18px;
+    background:var(--accent-wash);
+    border-left:3px solid var(--teal);
+    padding:11px 14px;
+    font-size:13.5px; color:var(--ink-soft); line-height:1.5;
+  }
+  .wf-note strong{color:var(--ink); font-weight:600;}
+
+  /* Pipeline stages */
+  .wf-stages{list-style:none; margin:0; padding:0;}
+  .wf-stage{
+    display:flex; gap:10px; align-items:flex-start;
+    border:1px solid var(--line);
+    border-top:3px solid var(--teal);
+    background:var(--paper);
+    padding:8px 10px;
+    position:relative;
+  }
+  .wf-stage + .wf-stage{margin-top:12px;}
+  .wf-stage + .wf-stage::before{
+    content:""; position:absolute; top:-15px; left:20px;
+    border-left:4px solid transparent; border-right:4px solid transparent;
+    border-top:5px solid var(--sage);
+  }
+  .wf-stage:last-child{border-top-color:var(--teal-deep); background:var(--accent-wash);}
+  .wf-stage-idx{
+    flex:none; width:22px; height:22px; border-radius:50%;
+    display:inline-flex; align-items:center; justify-content:center;
+    font-family:"Manrope", sans-serif; font-weight:800; font-size:11.5px;
+    color:var(--teal-deep); background:var(--accent-wash); border:1px solid var(--line);
+  }
+  .wf-stage-name{font-family:"Manrope", sans-serif; font-weight:700; font-size:14px; line-height:1.3;}
+  .wf-stage-by{font-size:12.5px; color:var(--ink-soft); line-height:1.4; margin-top:1px;}
+
+  /* Timed sequence */
+  .wf-seq{list-style:none; margin:0; padding:0;}
+  .wf-seq li{position:relative; padding:0 0 12px 24px; font-size:14.5px; line-height:1.45;}
+  .wf-seq li::before{
+    content:""; position:absolute; left:0; top:5px;
+    width:9px; height:9px; border-radius:50%;
+    border:1.5px solid var(--teal); background:var(--paper);
+  }
+  .wf-seq li::after{
+    content:""; position:absolute; left:5px; top:17px; bottom:1px;
+    border-left:1px solid var(--line);
+  }
+  .wf-seq li:last-child{padding-bottom:0;}
+  .wf-seq li:last-child::after{display:none;}
+  .wf-seq li.is-key::before{background:var(--teal);}
+
+  /* Branch outcome cards inside the panel */
+  .wf-bcards{display:grid; gap:10px;}
+  .wf-bcard{border:1px solid var(--line); border-top:3px solid var(--teal); padding:12px 14px;}
+  .wf-bcard--no{border-top-style:dashed; border-top-color:var(--sage);}
+  .wf-bcard-title{font-family:"Manrope", sans-serif; font-weight:700; font-size:14.5px; margin-bottom:6px;}
+  .wf-bcard ul{list-style:none; margin:0; padding:0;}
+  .wf-bcard li{font-size:14px; color:var(--ink-soft); padding:3px 0 3px 18px; position:relative; line-height:1.45;}
+  .wf-bcard li::before{content:"\2192"; position:absolute; left:0; top:3px; color:var(--teal);}
+  .wf-bcard--no li::before{color:var(--sage);}
+
+  .wf-jump{
+    margin-top:12px;
+    font:inherit; font-size:14px; font-weight:600; color:var(--teal-deep);
+    background:none; border:none; border-bottom:1px solid var(--line);
+    padding:6px 0 2px; cursor:pointer; min-height:36px;
+  }
+  .wf-jump:hover{border-color:var(--teal-deep);}
+
+  .wf-panel-nav{display:flex; justify-content:space-between; gap:10px; margin-top:22px;}
+  .wf-navbtn{
+    font:inherit; font-size:14px; font-weight:600; color:var(--ink);
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+    padding:10px 14px; min-height:44px; cursor:pointer;
+    transition:border-color .18s ease, color .18s ease;
+  }
+  .wf-navbtn:hover:not(:disabled){border-color:var(--teal); color:var(--teal-deep);}
+  .wf-navbtn:disabled{opacity:.45; cursor:default;}
+  .wf-panel-foot{
+    margin-top:16px; padding-top:12px;
+    border-top:1px solid var(--line-soft);
+    font-size:12.5px; color:var(--ink-soft); line-height:1.5;
+  }
+  .wf-panel-foot strong{color:var(--ink); font-weight:700; letter-spacing:.03em; text-transform:uppercase; font-size:11.5px;}
+
+  /* Inline panel mode (below 960px the panel opens under the tapped step) */
+  .wf-panel.wf-panel--inline{
+    position:static;
+    margin:10px 0 0;
+    border-top:1px solid var(--line);
+    border-left:3px solid var(--teal-deep);
+    padding:18px 16px 16px;
+  }
+  .wf-panel--inline .wf-close{display:inline-flex;}
+
+  /* ---- Sub-blocks: Before/After, What I Bring, Tools ---- */
+  .wf-sub{margin-top:72px; padding-top:56px; border-top:1px solid var(--line);}
+  .wf-sub-head{max-width:640px; margin-bottom:28px;}
+  .wf-h3{font-size:clamp(22px, 2.8vw, 27px); line-height:1.25;}
+  .wf-sub-desc{margin:12px 0 0; color:var(--ink-soft); font-size:15.5px; max-width:58ch;}
+
+  .wf-compare{
+    display:grid; grid-template-columns:1fr 1fr;
+    gap:1px; background:var(--line); border:1px solid var(--line);
+  }
+  .wf-compare-col{background:var(--ground); padding:28px 30px;}
+  .wf-compare-col--after{background:var(--accent-wash);}
+  .wf-compare-label{
+    display:flex; align-items:center; gap:8px;
+    font-size:12.5px; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+    color:var(--ink-soft); margin-bottom:12px;
+  }
+  .wf-compare-col--after .wf-compare-label{color:var(--teal-deep);}
+  .wf-compare ul{list-style:none; margin:0; padding:0;}
+  .wf-compare li{
+    position:relative; padding:9px 0 9px 26px;
+    border-top:1px solid var(--line-soft);
+    font-size:15px; line-height:1.4;
+  }
+  .wf-compare-col--before li{color:var(--ink-soft);}
+  .wf-compare-col--before li::before{
+    content:""; position:absolute; left:3px; top:50%;
+    width:10px; border-top:1.5px solid var(--sage);
+  }
+  .wf-compare-col--after li::before{
+    content:""; position:absolute; left:4px; top:calc(50% - 7px);
+    width:5px; height:10px;
+    border-right:2px solid var(--teal); border-bottom:2px solid var(--teal);
+    transform:rotate(45deg);
+  }
+  .wf-fineprint{margin-top:14px; font-size:13px; color:var(--ink-soft);}
+
+  .wf-pillars{
+    display:grid; grid-template-columns:repeat(3, 1fr);
+    border:1px solid var(--line);
+  }
+  .wf-pillar{
+    padding:30px 28px;
+    border-left:1px solid var(--line);
+    background:var(--paper);
+    transition:background-color .18s ease;
+  }
+  .wf-pillar:first-child{border-left:none;}
+  .wf-pillar:hover{background:var(--accent-wash);}
+  .wf-pillar-num{font-family:"Manrope", sans-serif; font-weight:800; font-size:12.5px; color:var(--sage); margin-bottom:14px;}
+  .wf-pillar-name{
+    font-family:"Manrope", sans-serif; font-weight:700; font-size:14px;
+    letter-spacing:.05em; text-transform:uppercase; color:var(--teal-deep);
+  }
+  .wf-pillar p{margin:10px 0 0; font-size:15px; color:var(--ink-soft); line-height:1.55;}
+  .wf-statement{margin-top:40px;}
+
+  .wf-tools{display:flex; flex-wrap:wrap; gap:10px;}
+  .wf-tools span{
+    display:inline-flex; align-items:center; gap:8px;
+    border:1px solid var(--line); background:var(--ground);
+    padding:8px 16px; border-radius:var(--radius);
+    font-size:14.5px; font-weight:500; color:var(--ink);
+  }
+  .wf-tools em{
+    font-style:normal; font-size:11px; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
+    color:var(--ink-soft); background:var(--paper); border:1px solid var(--line-soft);
+    padding:1px 7px; border-radius:20px;
+  }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 959px){
+    .wf-body{grid-template-columns:1fr;}
+    .wf-body > .wf-panel{display:none;}
+  }
+  @media (max-width: 760px){
+    .wf-pillars{grid-template-columns:1fr;}
+    .wf-pillar{border-left:none; border-top:1px solid var(--line);}
+    .wf-pillar:first-child{border-top:none;}
+  }
+  @media (max-width: 700px){
+    .wf-card{padding:24px 18px 26px;}
+    .wf-canvas{padding:18px 12px 20px;}
+    .wf-spine{max-width:none;}
+    .wf-split{grid-template-columns:1fr; gap:26px; padding-top:0;}
+    .wf-split::before, .wf-branch::before{display:none;}
+    .wf-branch{padding:14px 0 0 14px; border-left:2px solid var(--teal);}
+    .wf-branch--no{border-left:2px dashed var(--sage);}
+    .wf-branch-head{text-align:left;}
+    .wf-branch > .wf-link{margin-left:22px;}
+    .wf-compare{grid-template-columns:1fr;}
+    .wf-compare-col{padding:22px 20px;}
+    .wf-sub{margin-top:56px; padding-top:44px;}
+    .wf-disclaimer{flex-direction:column; gap:4px;}
+  }
+  @media (max-width: 420px){
+    .wf-card{padding:20px 14px 22px;}
+    .wf-canvas{padding:16px 10px 18px;}
+    .wf-panel.wf-panel--inline{padding:16px 12px 14px;}
+    .wf-panel-nav .wf-navbtn{flex:1;}
+  }
+  /* ===================== END WORKFLOWS & AUTOMATION CSS ===================== */
 </style>
 </head>
 <body>
@@ -816,6 +1249,7 @@
       <a href="#work">How I Work</a>
       <a href="#experience">Experience</a>
       <a href="#proof">Proof</a>
+      <a href="#workflows">Workflows &amp; Automation</a>
       <a href="#about">About</a>
     </nav>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks">Menu</button>
@@ -1223,6 +1657,110 @@
     </div>
   </section>
 
+  <!-- ================= WORKFLOWS & AUTOMATION (added 2026-09-30) ================= -->
+  <section class="block wf" id="workflows">
+    <div class="wrap">
+
+      <div class="wf-hero">
+        <div class="wf-hero-top">
+          <div class="section-kicker">Workflows &amp; Automation</div>
+          <span class="wf-badge">Sample Workflow</span>
+        </div>
+        <h2 class="section-title">Workflow &amp; Automation Systems</h2>
+        <p class="wf-hero-sub">I turn manual business processes into organized, repeatable systems.</p>
+        <p class="section-desc">Explore a sample workflow demonstrating how I approach automation architecture, business logic, CRM processes, and AI-assisted decision making.</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#wf-featured">Explore the Workflow</a>
+        </div>
+      </div>
+
+      <!-- Featured workflow. Content is rendered from WF_WORKFLOWS in the script at the bottom of the page. -->
+      <div class="wf-card" id="wf-featured">
+        <div id="wfApp"></div>
+        <noscript><p class="wf-desc">This interactive workflow needs JavaScript to display.</p></noscript>
+      </div>
+
+      <!-- Before vs After -->
+      <div class="wf-sub">
+        <div class="wf-sub-head">
+          <div class="section-kicker">Before vs After</div>
+          <h3 class="wf-h3">What changes when the process is designed</h3>
+        </div>
+        <div class="wf-compare">
+          <div class="wf-compare-col wf-compare-col--before">
+            <div class="wf-compare-label">Before</div>
+            <ul>
+              <li>Manual lead entry</li>
+              <li>Inconsistent follow-up</li>
+              <li>Leads sitting in inboxes</li>
+              <li>Manual appointment reminders</li>
+              <li>Scattered information</li>
+              <li>No standardized process</li>
+            </ul>
+          </div>
+          <div class="wf-compare-col wf-compare-col--after">
+            <div class="wf-compare-label">After</div>
+            <ul>
+              <li>Centralized lead capture</li>
+              <li>Structured qualification</li>
+              <li>Automated follow-up</li>
+              <li>Organized pipeline</li>
+              <li>Automated reminders</li>
+              <li>Documented process</li>
+            </ul>
+          </div>
+        </div>
+        <p class="wf-fineprint">A comparison of how the process is organized. No financial or performance results are claimed.</p>
+      </div>
+
+      <!-- What I Bring -->
+      <div class="wf-sub">
+        <div class="wf-sub-head">
+          <div class="section-kicker">My Role</div>
+          <h3 class="wf-h3">What I Bring</h3>
+        </div>
+        <div class="wf-pillars">
+          <div class="wf-pillar">
+            <div class="wf-pillar-num">01</div>
+            <div class="wf-pillar-name">Business Process</div>
+            <p>I understand the operational process before designing the automation.</p>
+          </div>
+          <div class="wf-pillar">
+            <div class="wf-pillar-num">02</div>
+            <div class="wf-pillar-name">Workflow Design</div>
+            <p>I map triggers, actions, conditions, branches, and handoffs.</p>
+          </div>
+          <div class="wf-pillar">
+            <div class="wf-pillar-num">03</div>
+            <div class="wf-pillar-name">Automation</div>
+            <p>I turn repeatable processes into structured systems using the appropriate tools.</p>
+          </div>
+        </div>
+        <p class="diff-quote wf-statement">Good automation isn't about adding more automation. It's about removing unnecessary manual work while keeping the process practical.</p>
+      </div>
+
+      <!-- Tools -->
+      <div class="wf-sub">
+        <div class="wf-sub-head">
+          <div class="section-kicker">Example Technology Stack</div>
+          <h3 class="wf-h3">Tools I Can Work With</h3>
+        </div>
+        <div class="wf-tools">
+          <span>GoHighLevel</span>
+          <span>CRM Systems</span>
+          <span>AI Tools</span>
+          <span>Google Workspace</span>
+          <span>Microsoft 365</span>
+          <span>ClickUp</span>
+          <span>Slack</span>
+        </div>
+        <p class="wf-fineprint">Listed as example tools. The sample workflow above is a platform-neutral concept and was not built in any of these platforms.</p>
+      </div>
+
+    </div>
+  </section>
+  <!-- ================= END WORKFLOWS & AUTOMATION ================= -->
+
   <section class="block" id="about">
     <div class="wrap">
       <div class="section-head">
@@ -1298,6 +1836,389 @@
     });
   }
 </script>
+
+<script>
+/* =====================================================================
+   WORKFLOWS & AUTOMATION  (added 2026-09-30)
+   Data-driven workflow viewer. To add a workflow, add one object to
+   WF_WORKFLOWS below. A tab row appears automatically when there is
+   more than one. No other code needs to change.
+
+   Step types: trigger | action | ai | condition | outcome
+   Detail block types:
+     { label, text }                         paragraph
+     { label, list:[...] }                   bullet list
+     { label, stages:[[name, setBy], ...] }  CRM pipeline stages
+     { label, sequence:[...], key:[i,...] }  timed sequence
+     { label, branches:[{title, tone:'yes'|'no', items:[...]}] }
+     { note }                                highlighted note
+     { jump:'stepId', text }                 button that opens another step
+   Flow: step ids in order; { split:[branchA, branchB] } creates branches.
+   ===================================================================== */
+(function () {
+  var WF_WORKFLOWS = [
+    {
+      id: 'lead-to-booking',
+      tab: 'Lead to Booking',
+      title: 'Lead Capture → Qualification → Booking',
+      description: 'A sample automation system designed to move a new lead from initial inquiry to qualified opportunity and booked appointment with minimal manual intervention.',
+      flow: [
+        'inquiry', 'capture', 'crm', 'ai', 'decision',
+        { split: [
+          { tone: 'yes', label: 'Yes', sub: 'Qualified',
+            steps: ['pipeline', 'booking', 'confirm', 'reminders', 'appointment'] },
+          { tone: 'no', label: 'No', sub: 'Not yet qualified',
+            steps: ['nurture', 'followup'],
+            loop: 'Re-enters AI / Qualification when engagement changes.' }
+        ] }
+      ],
+      steps: {
+        inquiry: {
+          num: '01', type: 'trigger', title: 'Lead Inquiry',
+          summary: 'Prospect submits a website form.',
+          details: [
+            { label: 'Trigger', text: 'A prospective client submits an inquiry through a website form.' },
+            { label: 'Data captured', list: ['Name', 'Email', 'Phone', 'Service requested', 'Message', 'Source'] },
+            { label: 'Next action', text: 'Create or update the CRM contact.' }
+          ]
+        },
+        capture: {
+          num: '02', type: 'action', title: 'Lead Capture',
+          summary: 'Check and standardize the submission.',
+          details: [
+            { label: 'Action', text: 'The form submission is received and checked before anything is written to the CRM.' },
+            { label: 'Checks', list: [
+              'Required fields are present',
+              'Email and phone are formatted consistently',
+              'Lead source is recorded',
+              'Existing contact is matched by email or phone to avoid duplicates'
+            ] },
+            { label: 'Next action', text: 'Send the clean record to the CRM.' }
+          ]
+        },
+        crm: {
+          num: '03', type: 'action', title: 'CRM Record',
+          summary: 'Create or update the contact.',
+          details: [
+            { label: 'Action', text: 'Create or update the contact record.' },
+            { label: 'Data', list: ['Contact information', 'Lead source', 'Service interest', 'Lead status'] },
+            { label: 'Next action', text: 'Apply the appropriate tag and move the lead into the qualification process.' }
+          ]
+        },
+        ai: {
+          num: '04', type: 'ai', title: 'AI / Qualification',
+          summary: 'Review the inquiry against set criteria.',
+          details: [
+            { label: 'Action', text: 'AI analyzes the inquiry using predefined qualification criteria.' },
+            { label: 'Example criteria', list: ['Service requested', 'Business type', 'Urgency', 'Budget or project fit', 'Completeness of inquiry'] },
+            { label: 'Output', text: 'A qualification result and a short reason, saved to the contact record. Unclear results are flagged for a person to review.' },
+            { note: '<strong>Example logic only.</strong> This shows how AI-assisted qualification could be structured. This demo does not include a live AI integration.' },
+            { label: 'Next action', text: 'Route the lead to the qualification decision.' }
+          ]
+        },
+        decision: {
+          num: '05', type: 'condition', title: 'Qualified?',
+          summary: 'Route to sales or to nurture.',
+          details: [
+            { label: 'Condition', text: 'Does the lead meet the qualification criteria?' },
+            { label: 'Branches', branches: [
+              { title: 'Yes: Qualified', tone: 'yes', items: ['Create sales opportunity', 'Assign pipeline stage', 'Send appropriate response', 'Provide booking option'] },
+              { title: 'No: Not yet qualified', tone: 'no', items: ['Add to nurture process', 'Send appropriate follow-up', 'Keep lead in CRM', 'Reassess based on future engagement'] }
+            ] }
+          ]
+        },
+        pipeline: {
+          num: '06', type: 'action', title: 'Sales Pipeline',
+          summary: 'Opportunity moves through set stages.',
+          details: [
+            { label: 'Action', text: 'Create a sales opportunity and place it in the pipeline.' },
+            { label: 'Pipeline stages', stages: [
+              ['New Lead', 'Set when the CRM record is created'],
+              ['Qualified', 'Set by the qualification step'],
+              ['Contacted', 'Set when the first response is sent'],
+              ['Appointment Pending', 'Set when the booking option is sent'],
+              ['Booked', 'Set when an appointment is booked'],
+              ['Completed', 'Set after the appointment']
+            ] },
+            { label: 'Next action', text: 'Send the booking option.' }
+          ]
+        },
+        booking: {
+          num: '07', type: 'action', title: 'Booking',
+          summary: 'Lead picks a time. Records update.',
+          details: [
+            { label: 'Action', text: 'Lead receives a booking option.' },
+            { label: 'Once the appointment is booked', list: ['Update CRM', 'Change opportunity stage', 'Send confirmation', 'Notify internal team', 'Start reminder sequence'] },
+            { label: 'Next action', text: 'Send the booking confirmation.' }
+          ]
+        },
+        confirm: {
+          num: '08', type: 'action', title: 'Confirmation',
+          summary: 'Confirm the booking to both sides.',
+          details: [
+            { label: 'Action', text: 'Send a booking confirmation to the lead and a notification to the internal team.' },
+            { label: 'Confirmation includes', list: ['Date and time', 'Meeting link or location', 'What to prepare', 'Option to reschedule'] },
+            { label: 'Next action', text: 'Start the reminder sequence.' }
+          ]
+        },
+        reminders: {
+          num: '09', type: 'action', title: 'Reminders',
+          summary: 'Timed reminders before the meeting.',
+          details: [
+            { label: 'Reminder sequence', sequence: [
+              'Appointment booked', 'Confirmation', '24-hour reminder', 'Same-day reminder', 'Appointment', 'Post-appointment follow-up'
+            ], key: [0, 4] },
+            { label: 'Condition', text: 'If the appointment is rescheduled or canceled, pending reminders stop and the sequence restarts from the new booking.' },
+            { label: 'Next action', text: 'The appointment takes place.' }
+          ]
+        },
+        appointment: {
+          num: '10', type: 'outcome', title: 'Appointment',
+          summary: 'Meeting held. Outcome recorded.',
+          details: [
+            { label: 'Action', text: 'Record whether the appointment was attended.' },
+            { label: 'Outcomes', branches: [
+              { title: 'Attended', tone: 'yes', items: ['Move opportunity to Completed', 'Send post-appointment follow-up'] },
+              { title: 'No-show', tone: 'no', items: ['Send a reschedule message', 'Keep opportunity at Appointment Pending'] }
+            ] },
+            { label: 'Handoff', text: 'The lead moves to the next process, such as a proposal or onboarding.' }
+          ]
+        },
+        nurture: {
+          num: 'N1', type: 'action', title: 'Nurture Sequence',
+          summary: 'Stay in touch without sales pressure.',
+          details: [
+            { label: 'Action', text: 'Add the lead to a nurture process and tag it for tracking.' },
+            { label: 'What happens', list: ['Send appropriate follow-up over time', 'Keep the lead and its history in the CRM', 'Track replies and link clicks'] },
+            { label: 'Exit conditions', list: ['Lead replies or books a call', 'Lead unsubscribes', 'Sequence ends'] },
+            { label: 'Next action', text: 'Periodic follow-up.' }
+          ]
+        },
+        followup: {
+          num: 'N2', type: 'action', title: 'Follow-Up',
+          summary: 'Reassess when engagement changes.',
+          details: [
+            { label: 'Action', text: 'Check in at set intervals and watch for engagement.' },
+            { label: 'Signals that trigger reassessment', list: ['A reply to a follow-up', 'A new form submission', 'A request for a call'] },
+            { label: 'Next action', text: 'When a signal appears, the lead returns to qualification for a fresh decision.' },
+            { jump: 'ai', text: 'Go to AI / Qualification' }
+          ]
+        }
+      }
+    }
+    /* , { id:'next-workflow', tab:'...', title:'...', description:'...', flow:[...], steps:{...} } */
+  ];
+
+  var TYPE_LABEL = { trigger: 'Trigger', action: 'Action', ai: 'AI-assisted', condition: 'Condition', outcome: 'Outcome' };
+  var DISCLAIMER = 'Conceptual example for portfolio demonstration. Actual implementation depends on the client’s systems, tools, and business process.';
+
+  var app = document.getElementById('wfApp');
+  if (!app) return;
+  var wide = window.matchMedia('(min-width: 960px)');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  var state = { wf: null, order: [], selected: null, panel: null, slot: null };
+
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+  function mark(type) { return '<span class="wf-mark wf-mark--' + type + '" aria-hidden="true"></span>'; }
+
+  function nodeHTML(id) {
+    var s = state.wf.steps[id];
+    return '<button type="button" class="wf-node wf-node--' + s.type + '" data-step="' + id + '"' +
+      ' aria-expanded="false" aria-controls="wfPanel">' +
+      '<span class="wf-node-top"><span class="wf-type">' + mark(s.type) + TYPE_LABEL[s.type] + '</span>' +
+      '<span class="wf-num">' + esc(s.num) + '</span></span>' +
+      '<span class="wf-node-title" style="display:block">' + esc(s.title) + '</span>' +
+      '<span class="wf-node-sum" style="display:block">' + esc(s.summary) + '</span>' +
+      '</button>';
+  }
+
+  function flowHTML(flow) {
+    var html = '<div class="wf-spine">';
+    var inSpine = true;
+    flow.forEach(function (item, i) {
+      if (typeof item === 'string') {
+        if (i > 0) html += '<div class="wf-link" aria-hidden="true"></div>';
+        html += nodeHTML(item);
+        state.order.push(item);
+      } else if (item.split) {
+        html += '<div class="wf-link wf-link--plain" aria-hidden="true"></div></div>';
+        inSpine = false;
+        html += '<div class="wf-split">';
+        item.split.forEach(function (br) {
+          html += '<div class="wf-branch wf-branch--' + br.tone + '">' +
+            '<div class="wf-branch-head"><span class="wf-pill"><b>' + esc(br.label) + '</b> ' + esc(br.sub) + '</span></div>';
+          br.steps.forEach(function (id) {
+            html += '<div class="wf-link" aria-hidden="true"></div>' + nodeHTML(id);
+            state.order.push(id);
+          });
+          if (br.loop) {
+            html += '<div class="wf-loop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v5h-5"/></svg><span>' + esc(br.loop) + '</span></div>';
+          }
+          html += '</div>';
+        });
+        html += '</div>';
+      }
+    });
+    if (inSpine) html += '</div>';
+    return html;
+  }
+
+  function blockHTML(b) {
+    var h = '';
+    if (b.note) return '<div class="wf-note">' + b.note + '</div>';
+    if (b.jump) return '<button type="button" class="wf-jump" data-jump="' + b.jump + '">' + esc(b.text) + ' →</button>';
+    h += '<div class="wf-block"><div class="wf-block-label">' + esc(b.label) + '</div>';
+    if (b.text) h += '<p>' + esc(b.text) + '</p>';
+    if (b.list) h += '<ul class="wf-list">' + b.list.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>';
+    if (b.stages) {
+      h += '<ol class="wf-stages">' + b.stages.map(function (st, i) {
+        return '<li class="wf-stage"><span class="wf-stage-idx">' + (i + 1) + '</span><div><div class="wf-stage-name">' +
+          esc(st[0]) + '</div><div class="wf-stage-by">' + esc(st[1]) + '</div></div></li>';
+      }).join('') + '</ol>';
+    }
+    if (b.sequence) {
+      var key = b.key || [];
+      h += '<ol class="wf-seq">' + b.sequence.map(function (x, i) {
+        return '<li' + (key.indexOf(i) > -1 ? ' class="is-key"' : '') + '>' + esc(x) + '</li>';
+      }).join('') + '</ol>';
+    }
+    if (b.branches) {
+      h += '<div class="wf-bcards">' + b.branches.map(function (br) {
+        return '<div class="wf-bcard wf-bcard--' + br.tone + '"><div class="wf-bcard-title">' + esc(br.title) + '</div><ul>' +
+          br.items.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div>';
+      }).join('') + '</div>';
+    }
+    return h + '</div>';
+  }
+
+  function panelHTML(id) {
+    var s = state.wf.steps[id];
+    var idx = state.order.indexOf(id);
+    return '<div class="wf-panel-top"><div class="wf-panel-kicker">' + mark(s.type) + 'Step ' + esc(s.num) + ' · ' + TYPE_LABEL[s.type] + '</div>' +
+      '<button type="button" class="wf-close" data-close>Close</button></div>' +
+      '<h4 class="wf-panel-title">' + esc(s.title) + '</h4>' +
+      s.details.map(blockHTML).join('') +
+      '<div class="wf-panel-nav">' +
+      '<button type="button" class="wf-navbtn" data-nav="-1"' + (idx <= 0 ? ' disabled' : '') + '>← Previous</button>' +
+      '<button type="button" class="wf-navbtn" data-nav="1"' + (idx >= state.order.length - 1 ? ' disabled' : '') + '>Next →</button>' +
+      '</div>' +
+      '<div class="wf-panel-foot"><strong>Demo workflow.</strong> ' + DISCLAIMER + '</div>';
+  }
+
+  function render(wf) {
+    state.wf = wf; state.order = []; state.selected = null;
+    var tabs = '';
+    if (WF_WORKFLOWS.length > 1) {
+      tabs = '<div class="wf-tabs" role="tablist" aria-label="Sample workflows">' + WF_WORKFLOWS.map(function (w) {
+        return '<button type="button" class="wf-tab" role="tab" data-wf="' + w.id + '" aria-selected="' + (w === wf) + '">' + esc(w.tab || w.title) + '</button>';
+      }).join('') + '</div>';
+    }
+    var canvas = flowHTML(wf.flow);
+    var branches = wf.flow.filter(function (f) { return typeof f === 'object' && f.split; }).length;
+    app.innerHTML = tabs +
+      '<div class="wf-card-meta"><span class="wf-badge wf-badge--demo">Demo Workflow</span>' +
+      '<span class="wf-count">' + state.order.length + ' steps' + (branches ? ' · ' + (branches * 2) + ' branches' : '') + '</span></div>' +
+      '<h3 class="wf-title">' + esc(wf.title) + '</h3>' +
+      '<p class="wf-desc">' + esc(wf.description) + '</p>' +
+      '<div class="wf-disclaimer"><strong>Demo workflow</strong><span>' + DISCLAIMER + '</span></div>' +
+      '<div class="wf-legend" aria-label="Step types">' +
+      Object.keys(TYPE_LABEL).map(function (t) { return '<span>' + mark(t) + TYPE_LABEL[t] + '</span>'; }).join('') +
+      '</div>' +
+      '<p class="wf-hint"><b>Select any step</b> to see its trigger, data, and next action.</p>' +
+      '<div class="wf-body"><div class="wf-canvas" role="group" aria-label="Workflow diagram">' + canvas + '</div>' +
+      '<aside class="wf-panel" id="wfPanel" role="region" aria-label="Step details" aria-live="polite" hidden></aside></div>';
+
+    state.panel = document.getElementById('wfPanel');
+    state.slot = app.querySelector('.wf-body');
+    if (wide.matches) select(state.order[0], false);
+  }
+
+  function nodeEl(id) { return app.querySelector('.wf-node[data-step="' + id + '"]'); }
+
+  function place() {
+    var p = state.panel;
+    if (wide.matches) {
+      p.classList.remove('wf-panel--inline');
+      if (p.parentNode !== state.slot) state.slot.appendChild(p);
+    } else {
+      p.classList.add('wf-panel--inline');
+      var n = state.selected && nodeEl(state.selected);
+      if (n) n.parentNode.insertBefore(p, n.nextSibling);
+    }
+  }
+
+  function select(id, scroll) {
+    app.querySelectorAll('.wf-node[aria-expanded="true"]').forEach(function (n) { n.setAttribute('aria-expanded', 'false'); });
+    if (!id) {
+      state.selected = null;
+      state.panel.hidden = true;
+      if (!wide.matches && state.panel.parentNode !== state.slot) state.slot.appendChild(state.panel);
+      return;
+    }
+    state.selected = id;
+    var n = nodeEl(id);
+    n.setAttribute('aria-expanded', 'true');
+    state.panel.innerHTML = panelHTML(id);
+    state.panel.hidden = false;
+    place();
+    if (scroll) {
+      var target = wide.matches ? n : n;
+      var r = target.getBoundingClientRect();
+      if (r.top < 90 || r.top > window.innerHeight * 0.55) {
+        target.scrollIntoView({ block: 'start', behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+      }
+    }
+  }
+
+  app.addEventListener('click', function (e) {
+    var t = e.target.closest('button');
+    if (!t || !app.contains(t)) return;
+    if (t.dataset.wf) {
+      var next = WF_WORKFLOWS.filter(function (w) { return w.id === t.dataset.wf; })[0];
+      if (next && next !== state.wf) render(next);
+      return;
+    }
+    if (t.dataset.step) {
+      var id = t.dataset.step;
+      if (!wide.matches && state.selected === id) { select(null); return; }
+      select(id, !wide.matches);
+      return;
+    }
+    if (t.hasAttribute('data-close')) {
+      var back = state.selected;
+      select(null);
+      if (back) nodeEl(back).focus();
+      return;
+    }
+    if (t.dataset.nav) {
+      var i = state.order.indexOf(state.selected) + parseInt(t.dataset.nav, 10);
+      if (i >= 0 && i < state.order.length) {
+        select(state.order[i], true);
+        var btn = state.panel.querySelector('[data-nav="' + t.dataset.nav + '"]');
+        if (btn && !btn.disabled) btn.focus({ preventScroll: true });
+      }
+      return;
+    }
+    if (t.dataset.jump) { select(t.dataset.jump, true); }
+  });
+
+  function onBreakpoint() {
+    if (!state.panel) return;
+    if (wide.matches && !state.selected) { select(state.order[0], false); return; }
+    place();
+  }
+  if (wide.addEventListener) wide.addEventListener('change', onBreakpoint);
+  else if (wide.addListener) wide.addListener(onBreakpoint);
+
+  render(WF_WORKFLOWS[0]);
+})();
+</script>
+<!-- ===================== END WORKFLOWS & AUTOMATION JS ===================== -->
 
 </body>
 </html>
